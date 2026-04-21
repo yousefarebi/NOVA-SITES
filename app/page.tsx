@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Navigation */}
@@ -25,12 +27,25 @@ export default function Home() {
               <Link href="#contact" className="px-5 py-2.5 rounded-full gradient-hero text-white font-medium hover:opacity-90 transition shadow-md">Get Started</Link>
             </div>
             {/* Mobile menu button */}
-            <button className="md:hidden p-2 text-gray-600 hover:text-gray-900">
+            <button
+              className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-gray-100 py-4 space-y-4">
+              <Link href="#services" className="block text-gray-600 hover:text-gray-900 transition px-2">Services</Link>
+              <Link href="#about" className="block text-gray-600 hover:text-gray-900 transition px-2">About</Link>
+              <Link href="#process" className="block text-gray-600 hover:text-gray-900 transition px-2">Process</Link>
+              <Link href="#contact" className="block px-5 py-2.5 rounded-full gradient-hero text-white font-medium hover:opacity-90 transition shadow-md text-center">Get Started</Link>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -271,7 +286,7 @@ export default function Home() {
               Let's discuss your project and see how we can help your business grow online.
             </p>
             <a
-              href="mailto:contact@novasites.ly"
+              href="mailto:yousef.hsarebi@gmail.com"
               className="inline-block px-8 py-4 rounded-full gradient-hero text-white font-semibold text-lg hover:opacity-90 transition shadow-lg shadow-indigo-500/30"
             >
               Contact Us
