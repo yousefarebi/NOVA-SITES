@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nova Sites | Professional Web Development in Musrata, Libya",
   description: "We help businesses build a strong online presence by creating professional websites that showcase their services and connect with customers effectively.",
+  icon: "/logo.jpeg",
 };
 
 export default function RootLayout({
